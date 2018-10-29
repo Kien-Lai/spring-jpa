@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: common-header">
+</head>
+<body>
+<div th:replace="fragments/header :: header"></div>
+<div class="container">
+    <div class="row view-area">
+    </div>
+    <div class="row">
+        <form th:action="@{/edit}" th:method="put">
+            <input name="id" th:attr="value=${student.id}"/>
+            Name: <input type="text" name="name" th:attr="placeholder=${student.name}"/>
+            Age: <input type="text" name="age" th:attr="placeholder=${student.age}"/>
+            Sex: <input type="text" name="sex" th:attr="placeholder=${student.sex}"/>
+            <input type="submit" value="save" />
+        </form>
+    </div>
+</div>
+<div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>

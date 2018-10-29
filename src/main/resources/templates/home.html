@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: common-header">
+</head>
+<body>
+<div th:replace="fragments/header :: header"></div>
+<div class="container">
+    <div class="row view-area">
+    </div>
+    <div class="row">
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Sex</th>
+                <td>Edit</td>
+                <td>Delete</td>
+            </tr>
+            <tr th:each="student : ${students}">
+                <td th:text="${student.id}"></td>
+                <td th:text="${student.name}"></td>
+                <td th:text="${student.age}"></td>
+                <td th:text="${student.sex}"></td>
+                <td>
+                    <form th:action="@{/edit/{id}(id=${student.id})}">
+                        <input type="submit" value="edit" />
+                    </form>
+                </td>
+                <td>
+                    <form th:action="@{/delete/{id}(id=${student.id})}">
+                        <input type="submit" value="delete" />
+                    </form>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+<div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>
